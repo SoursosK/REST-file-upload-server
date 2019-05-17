@@ -43,14 +43,16 @@ public class Model {
 
         Connection conn = DriverManager.getConnection("jdbc:sqlite:" + "sparkDB.db");
         Statement stm = conn.createStatement();
-        //stm.executeUpdate("drop table pianopairs;");
+        //stm.executeUpdate("drop table colorspairs;");
         
         //piano/////
-//        stm.executeUpdate("create table pianopairs (id integer primary key autoincrement, "
+//        stm.executeUpdate("create table colorspairs (id integer primary key autoincrement, "
 //                + "username string, attempt_number string, screen_resolution string, "
 //                + "pattern_number_a string, pattern_number_b string, "
 //                + "xcoord_of_central_point_of_a string, ycoord_of_central_point_of_a string, "
 //                + "xcoord_of_central_point_of_b string, ycoord_of_central_point_of_b string, "
+//                + "first_xcoord_of_a string, first_ycoord_of_a string, "
+//                + "last_xcoord_of_a string, last_ycoord_of_a string, "
 //                + "distance_ab string, intertime_ab string, avg_speedab string, "
 //                + "avg_pressure string);");
         
