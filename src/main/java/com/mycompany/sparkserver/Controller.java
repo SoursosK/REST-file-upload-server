@@ -15,8 +15,13 @@ import spark.Request;
 import spark.Response;
 
 public class Controller {
-
+    private final Model model;
+    private final csvManager csvManager;
+    
     public Controller() {
+        this.model = new Model();
+        this.csvManager = new csvManager(this.model.getStatement());
+        
         Routing();
     }
     
@@ -28,12 +33,15 @@ public class Controller {
             
             String authType = request.queryParams("authType");
             String fileName = request.queryParams("fileName");
-            System.out.println(authType);
-            System.out.println(fileName);
+//            System.out.println(authType);
+//            System.out.println(fileName);
             
+            String filePath = System.getProperty("user.home") + "/Desktop/aa/" + fileName;
             try (InputStream input = request.raw().getPart("uploaded_file").getInputStream()) {
-                Files.copy(input, Paths.get(System.getProperty("user.home") + "/Desktop/aa/" + fileName), StandardCopyOption.REPLACE_EXISTING);
+                Files.copy(input, Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
             }
+            
+            this.csvManager.storeFile(authType, fileName, filePath);
 
             return "File uploaded";
         });
