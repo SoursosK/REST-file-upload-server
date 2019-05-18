@@ -36,7 +36,8 @@ public class Controller {
 //            System.out.println(authType);
 //            System.out.println(fileName);
             
-            String filePath = System.getProperty("user.home") + "/Desktop/aa/" + fileName;
+            //String filePath = System.getProperty("user.home") + "/Desktop/aa/" + fileName;
+            String filePath = "./aa/" + fileName;
             try (InputStream input = request.raw().getPart("uploaded_file").getInputStream()) {
                 Files.copy(input, Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
             }

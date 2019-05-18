@@ -43,7 +43,13 @@ public class Model {
 
         Connection conn = DriverManager.getConnection("jdbc:sqlite:" + "sparkDB.db");
         Statement stm = conn.createStatement();
-        //stm.executeUpdate("drop table colorspairs;");
+        //stm.executeUpdate("drop table colorsmetadata;");
+        
+        ResultSet res = stm.executeQuery("select * from pianometadata;");
+        
+        while(res.next())
+            System.out.println(res.getString("sequence"));
+        
         
         //piano/////
 //        stm.executeUpdate("create table colorspairs (id integer primary key autoincrement, "
@@ -67,7 +73,7 @@ public class Model {
 //                + "hold_duration4 string);");
         
 //        stm.executeUpdate("create table pianometadata (id integer primary key autoincrement, "
-//                + "username string, attempt_number string, seq_length string, "
+//                + "username string, attempt_number string, sequence string, seq_length string, "
 //                + "time_to_complete string, patternlength string, avg_speed string, "
 //                + "highest_pressure string, lowest_pressure string, handnum string, "
 //                + "fingernum string);");
@@ -92,7 +98,7 @@ public class Model {
 //                + "hold_duration4 string);");
         
 //        stm.executeUpdate("create table colorsmetadata (id integer primary key autoincrement, "
-//                + "username string, attempt_number string, seq_length string, "
+//                + "username string, attempt_number string, sequence string, seq_length string, "
 //                + "time_to_complete string, patternlength string, avg_speed string, "
 //                + "highest_pressure string, lowest_pressure string, handnum string, "
 //                + "fingernum string);");

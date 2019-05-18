@@ -1,3 +1,3 @@
-com\mycompany\sparkserver\Controller.class
-com\mycompany\sparkserver\csvManager.class
-com\mycompany\sparkserver\Model.class
+com/mycompany/sparkserver/Model.class
+com/mycompany/sparkserver/Controller.class
+com/mycompany/sparkserver/csvManager.class

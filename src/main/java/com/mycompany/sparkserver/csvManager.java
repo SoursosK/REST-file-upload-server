@@ -146,7 +146,7 @@ public class csvManager {
                 if(csvRecord.getRecordNumber() == 1)
                     continue;
                 
-                stm.executeUpdate("insert into pianometadata (username, username, attempt_number, seq_length, time_to_complete, "
+                stm.executeUpdate("insert into pianometadata (username, attempt_number, sequence, seq_length, time_to_complete, "
                         + "patternlength, avg_speed, highest_pressure, lowest_pressure, handnum, fingernum) values " 
                         + " ('" + csvRecord.get(0) + "', '" + csvRecord.get(1) + "', '" + csvRecord.get(2) 
                         + "', '" + csvRecord.get(3) + "', '" + csvRecord.get(4) + "', '" + csvRecord.get(5) 
